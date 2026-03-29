@@ -206,13 +206,13 @@ elif st.session_state.page == 'NN_Info':
     ### 3. Deep Learning Theory & Architecture (NN)
     * **MobileNetV2 (CNN Architecture):**
         * **Concept:** A specialized **Convolutional Neural Network (CNN)** designed for mobile and web-based efficiency. It uses **Depthwise Separable Convolutions** to process image pixels (edges, shapes, and textures) with significantly fewer parameters than standard CNNs.
-        * **Why I use it:** Since we are deploying this on a web interface (Streamlit), we need a model that is **Lightweight and Fast**. MobileNetV2 provides high accuracy for image classification while maintaining low latency, ensuring users get instant predictions without heavy server loads.
+        * **Why I use it:** Since I am deploying this on a web interface (Streamlit), I need a model that is **Lightweight and Fast**. MobileNetV2 provides high accuracy for image classification while maintaining low latency, ensuring users get instant predictions without heavy server loads.
     * **Transfer Learning & Freezing Layers:**
         * **Concept:** A technique where a model developed for one task (ImageNet) is reused as the starting point for a second task. **Freezing** means locking the weights of the initial layers so they don't change during our specific training.
-        * **Why I use it:** Our dataset is relatively small (approx. 500 images). Training a deep network from scratch would lead to **Overfitting**. By freezing the "knowledge" of 1.4 million images from ImageNet, we retain the ability to recognize basic visual features (like animal legs or fur) and only need to train the final layers to distinguish our 5 specific equine classes.
+        * **Why I use it:** Our dataset is relatively small (approx. 500 images). Training a deep network from scratch would lead to **Overfitting**. By freezing the "knowledge" of 1.4 million images from ImageNet, I retain the ability to recognize basic visual features (like animal legs or fur) and only need to train the final layers to distinguish our 5 specific equine classes.
     * **Softmax Activation Function:**
         * **Concept:** A mathematical function used in the final **Output Layer** that turns raw numerical scores (logits) into a **Probability Distribution** (ranging from 0 to 1).
-        * **Why I use it:** We need to know not just "what" the animal is, but "how sure" the model is. Softmax allows us to see the **Confidence Percentage** for all 5 classes (Horse, Zebra, Unicorn, Pegasus, and Alicorn). This is crucial for our **70% Threshold** logic—if the highest Softmax probability is too low, the system can safely say it "doesn't know," preventing false guesses.
+        * **Why I use it:** I need to know not just "what" the animal is, but "how sure" the model is. Softmax allows us to see the **Confidence Percentage** for all 5 classes (Horse, Zebra, Unicorn, Pegasus, and Alicorn). This is crucial for our **70% Threshold** logic—if the highest Softmax probability is too low, the system can safely say it "doesn't know," preventing false guesses.
     """)
     st.markdown(""" """)
     st.markdown(""" """)
