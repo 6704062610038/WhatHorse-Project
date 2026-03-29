@@ -8,15 +8,18 @@ import tensorflow as tf
 load_model = tf.keras.models.load_model
 from PIL import Image
 import tensorflow as tf
+from tensorflow.keras.models import load_model
 
 # --- Cache model loading function ---
 @st.cache_resource
 def get_ml_model():
-    return joblib.load('horse_feature_model.pkl')
+    model_path = os.path.join(os.getcwd(), 'horse_feature_model.pkl')
+    return joblib.load(model_path)
 
 @st.cache_resource
 def get_nn_model():
-    return tf.keras.models.load_model('horse_image_model.h5')
+    model_path = os.path.join(os.getcwd(), 'horse_image_model.h5')
+    return tf.keras.models.load_model(model_path, compile=False)
 
 # --- Additional information (Constants) ---
 CLASSES = ['Alicorn', 'Horse', 'Pegasus', 'Unicorn', 'Zebra']
